@@ -24,15 +24,6 @@ class PostLoaded extends PostState {
   List<Object> get props => [posts];
 }
 
-class PostSuccess extends PostState {
-  final String message;
-
-  const PostSuccess({required this.message});
-
-  @override
-  List<Object> get props => [message];
-}
-
 class PostError extends PostState {
   final String message;
 
