@@ -1,15 +1,15 @@
 import 'package:equatable/equatable.dart';
 
-abstract class PostEvent extends Equatable {
-  const PostEvent();
+abstract class PostsEvent extends Equatable {
+  const PostsEvent();
 
   @override
   List<Object> get props => [];
 }
 
-class FetchPosts extends PostEvent {}
+class FetchPosts extends PostsEvent {}
 
-class SubmitPost extends PostEvent {
+class SubmitPost extends PostsEvent {
   final String title;
   final String body;
 
@@ -19,7 +19,7 @@ class SubmitPost extends PostEvent {
   List<Object> get props => [title, body];
 }
 
-class DeletePost extends PostEvent {
+class DeletePost extends PostsEvent {
   final int id;
 
   const DeletePost(this.id);
