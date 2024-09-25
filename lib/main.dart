@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:network/bloc/posts_bloc.dart';
-import 'package:network/screens/posts_screen.dart';
-import 'package:network/core/service_locator.dart';
-
+import 'package:network/core/network/api_service.dart';
+import 'package:network/core/providers/posts_provider.dart';
+import 'package:network/ui/screens/posts_screen.dart';
+import 'package:network/core/services/service_locator.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   setupLocator();
@@ -15,10 +15,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: BlocProvider(
-        create: (context) => getIt<PostsBloc>(),
-        child: const PostsScreen(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (_) => PostsProvider(apiService: getIt<ApiService>()),
+        ),
+      ],
+      child: const MaterialApp(
+        home: PostsScreen(),
       ),
     );
   }
