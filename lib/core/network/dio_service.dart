@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
-import 'package:network/network/api_endpoints.dart';
-import 'package:network/network/api_service.dart';
+import 'package:network/core/network/api_endpoints.dart';
+import 'package:network/core/network/retry_interceptor.dart';
 
 class DioService {
   final Dio _dio;

@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 
-class ErrorHandler {
+class ErrorsHandler {
   String getMessage(Object error) {
     if (error is DioException) {
       switch (error.type) {
