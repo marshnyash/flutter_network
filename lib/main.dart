@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:network/bloc/posts_bloc.dart';
-import 'package:network/screens/post_screen.dart';
-import 'package:network/services/service_locator.dart';
+import 'package:network/screens/posts_screen.dart';
+import 'package:network/core/service_locator.dart';
 
 
 void main() {
@@ -17,8 +17,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: BlocProvider(
-        create: (context) => getIt<PostBloc>(), // Access PostBloc using get_it
-        child: PostScreen(),
+        create: (context) => getIt<PostsBloc>(),
+        child: const PostsScreen(),
       ),
     );
   }
